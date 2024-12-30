@@ -10,4 +10,9 @@ public class TestControllar {
     public  String testString(){
         return "test";
     }
+
+    @GetMapping
+    public  String retuenMassage(){
+        return "hello how are you! i am from DM";
+    }
 }
