@@ -15,4 +15,9 @@ public class TestControllar {
     public  String retuenMassage(){
         return "hello how are you! i am from DM";
     }
+
+    @GetMapping("/msg")
+    public String test(){
+        return "test";
+    }
 }
