@@ -12,7 +12,12 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t jenkinstest .'
+                script {
+                    bat '''
+                    docker images -q jenkinstest | findstr . > nul && docker rmi -f jenkinstest || echo "No existing image to remove."
+                    docker build -t jenkinstest .
+                    '''
+                }
             }
         }
         stage('Run Docker Image') {
@@ -24,9 +29,6 @@ pipeline {
                     '''
                 }
             }
-//             steps {
-//                 bat 'docker run -d -p 8083:8083 --name jenkinstest-container jenkinstest'
-//             }
         }
     }
 }
