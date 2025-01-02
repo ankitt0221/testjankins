@@ -20,4 +20,9 @@ public class TestControllar {
     public String test(){
         return "test";
     }
+
+    @GetMapping("/get")
+    public String get(){
+        return "how to get jenkins ";
+    }
 }
