@@ -17,8 +17,16 @@ pipeline {
         }
         stage('Run Docker Image') {
             steps {
-                bat 'docker run -d -p 8083:8083 --name jenkinstest-container jenkinstest'
+                script {
+                    bat '''
+                    docker ps -a -q --filter "name=jenkinstest-container" | findstr . > nul && docker rm -f jenkinstest-container || echo "No existing container to remove."
+                    docker run -d -p 8083:8083 --name jenkinstest-container jenkinstest
+                    '''
+                }
             }
+//             steps {
+//                 bat 'docker run -d -p 8083:8083 --name jenkinstest-container jenkinstest'
+//             }
         }
     }
 }
