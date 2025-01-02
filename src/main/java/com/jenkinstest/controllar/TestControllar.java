@@ -25,4 +25,9 @@ public class TestControllar {
     public String get(){
         return "how to get jenkins ";
     }
+
+    @GetMapping("/send")
+    public String send(){
+        return "i was send test message can you check it in DM";
+    }
 }
