@@ -30,4 +30,19 @@ public class TestControllar {
     public String send(){
         return "i was send test message can you check it in DM";
     }
+
+    @GetMapping("/getData")
+    public String getData(){
+
+        StringBuffer sb = new StringBuffer();
+        sb.append("hello how to get jenkins ");
+        sb.append("how are you? ");
+        sb.append("I am from DM ");
+        sb.append("what about you? ");
+        sb.append("i was create dev test  ");
+        sb.append("it's working fine ");
+        sb.append("now i have testing  ");
+        sb.append("sucessfully dev test  ");
+        return sb.toString();
+    }
 }
